@@ -8,11 +8,7 @@
 
 <meta
   name="viewport"
-  content="
-    width=device-width,
-    initial-scale=1,
-    maximum-scale=1
-  "
+  content="width=device-width, initial-scale=1.0"
 >
 
 <title>
@@ -20,12 +16,7 @@ Event QR Check-in
 </title>
 
 
-<!-- QR Scanner Library -->
-
-<script
-  src="https://unpkg.com/html5-qrcode"
-  type="text/javascript">
-</script>
+<script src="https://unpkg.com/html5-qrcode"></script>
 
 
 <style>
@@ -39,320 +30,263 @@ body {
 
   margin: 0;
 
+  padding: 20px;
+
+  background: #f5f5f5;
+
   font-family:
     Arial,
     Helvetica,
     sans-serif;
-
-  background:
-    #f2f4f7;
-
-  color:
-    #222;
 
 }
 
 
 .container {
 
-  max-width:
-    520px;
+  max-width: 520px;
 
-  margin:
-    auto;
-
-  padding:
-    20px;
+  margin: auto;
 
 }
 
 
 .card {
 
-  background:
-    white;
+  background: white;
 
-  border-radius:
-    18px;
+  border-radius: 24px;
 
-  padding:
-    24px;
-
-  margin-bottom:
-    18px;
+  padding: 24px;
 
   box-shadow:
-    0 4px 20px
-    rgba(0,0,0,.08);
+    0 8px 30px
+    rgba(0,0,0,0.08);
 
 }
 
 
 h1 {
 
-  text-align:
-    center;
+  text-align: center;
 
-  margin-top:
-    0;
+  margin-top: 0;
 
 }
 
 
-h2 {
+label {
 
-  margin-top:
-    0;
+  display: block;
+
+  margin-top: 15px;
+
+  margin-bottom: 6px;
+
+  font-weight: bold;
 
 }
 
 
 input {
 
-  width:
-    100%;
+  width: 100%;
 
-  padding:
-    14px;
-
-  margin-bottom:
-    12px;
+  padding: 14px;
 
   border:
     1px solid #ccc;
 
-  border-radius:
-    9px;
+  border-radius: 10px;
 
-  font-size:
-    16px;
+  font-size: 16px;
 
 }
 
 
 button {
 
-  width:
-    100%;
+  width: 100%;
 
-  padding:
-    15px;
+  padding: 16px;
 
-  border:
-    none;
+  border: none;
 
-  border-radius:
-    9px;
+  border-radius: 12px;
 
-  font-size:
-    17px;
+  font-size: 17px;
 
-  font-weight:
-    bold;
+  font-weight: bold;
 
-  cursor:
-    pointer;
+  cursor: pointer;
 
 }
 
 
 .primary {
 
-  background:
-    #111;
+  background: #111;
 
-  color:
-    white;
+  color: white;
+
+  margin-top: 20px;
 
 }
 
 
 .secondary {
 
-  background:
-    #e9ecef;
+  background: #e8e8e8;
 
-  color:
-    #222;
+  color: #111;
 
-}
-
-
-.hidden {
-
-  display:
-    none;
+  margin-top: 12px;
 
 }
 
 
 #reader {
 
-  width:
-    100%;
+  width: 100%;
 
-  margin:
-    15px 0;
+  margin-top: 20px;
 
 }
 
 
 .status {
 
-  font-size:
-    32px;
+  margin-top: 20px;
 
-  font-weight:
-    bold;
+  padding: 25px;
 
-  text-align:
-    center;
+  border-radius: 18px;
 
-  margin-bottom:
-    12px;
+  text-align: center;
+
+  display: none;
+
+}
+
+
+.status.valid {
+
+  display: block;
+
+  background: #e7f8ec;
+
+  border:
+    3px solid #22a447;
+
+}
+
+
+.status.duplicate {
+
+  display: block;
+
+  background: #fff5d6;
+
+  border:
+    3px solid #e6b800;
+
+}
+
+
+.status.invalid {
+
+  display: block;
+
+  background: #ffe7e7;
+
+  border:
+    3px solid #d33;
+
+}
+
+
+.status.error {
+
+  display: block;
+
+  background: #eeeeee;
+
+  border:
+    3px solid #555;
+
+}
+
+
+.status h2 {
+
+  margin-top: 0;
+
+  font-size: 28px;
 
 }
 
 
 .registration-id {
 
-  text-align:
-    center;
+  font-size: 25px;
 
-  font-size:
-    24px;
+  font-weight: bold;
 
-  font-weight:
-    bold;
-
-  margin:
-    15px 0;
-
-}
-
-
-.success {
-
-  background:
-    #d9f7df;
-
-  border:
-    2px solid #28a745;
-
-  color:
-    #155724;
-
-}
-
-
-.warning {
-
-  background:
-    #fff3cd;
-
-  border:
-    2px solid #ffc107;
-
-  color:
-    #856404;
-
-}
-
-
-.error {
-
-  background:
-    #f8d7da;
-
-  border:
-    2px solid #dc3545;
-
-  color:
-    #721c24;
-
-}
-
-
-.result {
-
-  padding:
-    20px;
-
-  border-radius:
-    14px;
+  margin: 15px 0;
 
 }
 
 
 .participant {
 
-  background:
-    rgba(255,255,255,.65);
+  margin-top: 15px;
 
-  border-radius:
-    10px;
+  text-align: left;
 
-  padding:
-    12px;
+  background: white;
+
+  border-radius: 10px;
+
+  padding: 12px;
 
 }
 
 
 .participant-row {
 
-  padding:
-    9px 0;
+  padding: 6px 0;
 
   border-bottom:
-    1px solid
-    rgba(0,0,0,.1);
+    1px solid #eee;
 
 }
 
 
 .participant-row:last-child {
 
-  border-bottom:
-    none;
-
-}
-
-
-.label {
-
-  font-weight:
-    bold;
+  border-bottom: none;
 
 }
 
 
 .small {
 
-  text-align:
-    center;
+  color: #666;
 
-  color:
-    #666;
+  font-size: 13px;
 
-  font-size:
-    13px;
+  margin-top: 15px;
 
-}
-
-
-.camera-help {
-
-  text-align:
-    center;
-
-  color:
-    #666;
-
-  font-size:
-    14px;
+  text-align: center;
 
 }
 
+
+.hidden {
+
+  display: none;
+
+}
 
 </style>
 
@@ -365,153 +299,99 @@ button {
 <div class="container">
 
 
-<!-- ==========================================
-     LOGIN
-=========================================== -->
+<div class="card">
 
-<div
-  id="loginCard"
-  class="card"
->
 
 <h1>
-🎟️ Event Check-in
+🎟️ Event QR Check-in
 </h1>
 
-<p class="small">
-Event Staff Access
-</p>
 
+<label for="staffName">
+Staff Name
+</label>
 
 <input
   id="staffName"
   type="text"
-  placeholder="Staff Name"
+  placeholder="Enter staff name"
+  autocomplete="name"
 >
 
+
+<label for="staffPin">
+Staff PIN
+</label>
 
 <input
   id="staffPin"
   type="password"
-  placeholder="Staff PIN"
+  placeholder="Enter staff PIN"
 >
 
 
 <button
+  id="startButton"
   class="primary"
-  onclick="login()"
+>
+Start Scanner
+</button>
+
+
+<div
+  id="reader"
+></div>
+
+
+<div
+  id="status"
+  class="status"
 >
 
-Start Check-in
 
-</button>
+<h2 id="statusTitle">
+</h2>
+
+
+<div
+  id="statusMessage"
+>
+</div>
+
+
+<div
+  id="registrationId"
+  class="registration-id"
+>
+</div>
+
+
+<div
+  id="participant"
+  class="participant hidden"
+>
+</div>
+
 
 </div>
 
 
-<!-- ==========================================
-     SCANNER
-=========================================== -->
-
-<div
-  id="scannerCard"
-  class="card hidden"
+<button
+  id="nextButton"
+  class="secondary hidden"
 >
+Scan Next Participant
+</button>
 
-<h2>
-📷 Scan QR Code
-</h2>
 
-<p class="camera-help">
+<p class="small">
 
-Point the camera at the participant's
-QR code.
+Camera access is required for QR scanning.
 
 </p>
 
 
-<div id="reader"></div>
-
-
-<button
-  id="startScannerButton"
-  class="primary"
-  onclick="startScanner()"
->
-
-Start Camera
-
-</button>
-
-
-<br><br>
-
-
-<input
-  id="manualId"
-  type="text"
-  placeholder="Or enter Registration ID"
->
-
-
-<button
-  class="secondary"
-  onclick="manualCheckIn()"
->
-
-Check Registration ID
-
-</button>
-
-
-<p
-  id="scannerMessage"
-  class="small"
-></p>
-
 </div>
-
-
-<!-- ==========================================
-     RESULT
-=========================================== -->
-
-<div
-  id="resultCard"
-  class="card hidden"
->
-
-<div id="result"></div>
-
-
-<br>
-
-
-<button
-  class="primary"
-  onclick="scanAgain()"
->
-
-Scan Next Participant
-
-</button>
-
-</div>
-
-
-<!-- Hidden API iframe -->
-
-<iframe
-  name="apiFrame"
-  id="apiFrame"
-  style="
-    display:none;
-    width:0;
-    height:0;
-    border:0;
-  "
-></iframe>
-
 
 </div>
 
@@ -519,297 +399,252 @@ Scan Next Participant
 <script>
 
 
-/************************************************
+/****************************************************
  * CONFIGURATION
- ************************************************/
+ ****************************************************/
 
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbyuyJvmGQG2u5j38Ui8RpBc3DjeJbrYbZZYz6qn6nOOyl7DE47QBgcABz6MDHUwq0IQIg/exec";
+  "https://event-checkin-api.yobarskamper.workers.dev";
 
 
-/************************************************
- * VARIABLES
- ************************************************/
-
-let staffName =
-  "";
-
-let staffPin =
-  "";
+/****************************************************
+ * GLOBALS
+ ****************************************************/
 
 let scanner =
   null;
 
+
 let scannerRunning =
   false;
 
-let waitingForResponse =
+
+let processingScan =
   false;
 
 
-/************************************************
- * LOGIN
- ************************************************/
+/****************************************************
+ * ELEMENTS
+ ****************************************************/
 
-function login() {
-
-  staffName =
-    document
-      .getElementById(
-        "staffName"
-      )
-      .value
-      .trim();
-
-  staffPin =
-    document
-      .getElementById(
-        "staffPin"
-      )
-      .value
-      .trim();
-
-
-  if (!staffName) {
-
-    alert(
-      "Please enter your staff name."
-    );
-
-    return;
-
-  }
-
-
-  if (!staffPin) {
-
-    alert(
-      "Please enter the staff PIN."
-    );
-
-    return;
-
-  }
-
-
-  document
-    .getElementById(
-      "loginCard"
-    )
-    .classList
-    .add("hidden");
-
-
-  document
-    .getElementById(
-      "scannerCard"
-    )
-    .classList
-    .remove("hidden");
-
-
-  startScanner();
-
-}
-
-
-/************************************************
- * START CAMERA
- ************************************************/
-
-function startScanner() {
-
-
-  if (scannerRunning) {
-    return;
-  }
-
-
-  setMessage(
-    "Starting camera..."
+const staffNameInput =
+  document.getElementById(
+    "staffName"
   );
 
 
-  if (
-    typeof Html5Qrcode ===
-    "undefined"
-  ) {
+const staffPinInput =
+  document.getElementById(
+    "staffPin"
+  );
 
-    setMessage(
-      "QR scanner library failed to load."
-    );
+
+const startButton =
+  document.getElementById(
+    "startButton"
+  );
+
+
+const nextButton =
+  document.getElementById(
+    "nextButton"
+  );
+
+
+const statusBox =
+  document.getElementById(
+    "status"
+  );
+
+
+const statusTitle =
+  document.getElementById(
+    "statusTitle"
+  );
+
+
+const statusMessage =
+  document.getElementById(
+    "statusMessage"
+  );
+
+
+const registrationIdBox =
+  document.getElementById(
+    "registrationId"
+  );
+
+
+const participantBox =
+  document.getElementById(
+    "participant"
+  );
+
+
+/****************************************************
+ * START SCANNER
+ ****************************************************/
+
+startButton.addEventListener(
+  "click",
+  async function() {
+
+    const staffName =
+      staffNameInput.value.trim();
+
+
+    const staffPin =
+      staffPinInput.value;
+
+
+    if (!staffName) {
+
+      alert(
+        "Please enter Staff Name."
+      );
+
+      staffNameInput.focus();
+
+      return;
+
+    }
+
+
+    if (!staffPin) {
+
+      alert(
+        "Please enter Staff PIN."
+      );
+
+      staffPinInput.focus();
+
+      return;
+
+    }
+
+
+    startButton.disabled =
+      true;
+
+
+    try {
+
+      await startScanner();
+
+
+    } catch (error) {
+
+      console.error(
+        error
+      );
+
+
+      alert(
+        "Camera could not be started.\n\n" +
+        error.message
+      );
+
+
+      startButton.disabled =
+        false;
+
+    }
+
+  }
+);
+
+
+/****************************************************
+ * START CAMERA
+ ****************************************************/
+
+async function startScanner() {
+
+  if (
+    scannerRunning
+  ) {
 
     return;
 
   }
 
 
-  Html5Qrcode
-    .getCameras()
-
-    .then(
-      function(cameras) {
-
-
-        if (
-          !cameras ||
-          cameras.length === 0
-        ) {
-
-          setMessage(
-            "No camera detected."
-          );
-
-          return;
-
-        }
+  scanner =
+    new Html5Qrcode(
+      "reader"
+    );
 
 
-        // Prefer rear camera
+  await scanner.start(
 
-        let cameraId =
-          cameras[0].id;
+    {
+      facingMode:
+        "environment"
+    },
 
+    {
+      fps: 10,
 
-        for (
-          let i = 0;
-          i < cameras.length;
-          i++
-        ) {
+      qrbox: function(
+        viewfinderWidth,
+        viewfinderHeight
+      ) {
 
-          const label =
-            (
-              cameras[i].label ||
-              ""
-            ).toLowerCase();
-
-
-          if (
-
-            label.includes("back") ||
-            label.includes("rear") ||
-            label.includes("environment")
-
-          ) {
-
-            cameraId =
-              cameras[i].id;
-
-            break;
-
-          }
-
-        }
+        const size =
+          Math.min(
+            viewfinderWidth,
+            viewfinderHeight
+          ) * 0.75;
 
 
-        scanner =
-          new Html5Qrcode(
-            "reader"
-          );
+        return {
 
+          width:
+            Math.floor(size),
 
-        const config = {
-
-          fps:
-            10,
-
-          qrbox: {
-
-            width:
-              250,
-
-            height:
-              250
-
-          }
+          height:
+            Math.floor(size)
 
         };
 
-
-        scanner
-
-          .start(
-
-            cameraId,
-
-            config,
-
-            function(decodedText) {
-
-              onQrScanned(
-                decodedText
-              );
-
-            },
-
-            function(errorMessage) {
-
-              // Ignore normal scan failures
-
-            }
-
-          )
-
-          .then(
-            function() {
-
-              scannerRunning =
-                true;
-
-              setMessage(
-                "Camera ready. Scan a QR code."
-              );
-
-            }
-          )
-
-          .catch(
-            function(error) {
-
-              console.error(
-                error
-              );
-
-              setMessage(
-                "Unable to start camera. " +
-                "Please allow camera access."
-              );
-
-            }
-          );
-
-
       }
-    )
 
-    .catch(
-      function(error) {
+    },
 
-        console.error(
-          error
-        );
+    onQrScanned,
 
-        setMessage(
-          "Unable to access camera. " +
-          "Check browser permissions."
-        );
+    function(errorMessage) {
 
-      }
-    );
+      // Ignore normal scanner errors.
+      // These happen continuously while
+      // the camera is looking for a QR.
+
+    }
+
+  );
+
+
+  scannerRunning =
+    true;
+
+
+  startButton.classList.add(
+    "hidden"
+  );
 
 }
 
 
-/************************************************
+/****************************************************
  * QR SCANNED
- ************************************************/
+ ****************************************************/
 
-function onQrScanned(
+async function onQrScanned(
   decodedText
 ) {
 
   if (
-    waitingForResponse
+    processingScan
   ) {
 
     return;
@@ -819,675 +654,666 @@ function onQrScanned(
 
   const registrationId =
     String(
-      decodedText
+      decodedText || ""
     )
       .trim()
       .toUpperCase();
 
 
-  if (!registrationId) {
+  /**************************************************
+   * Validate QR locally first.
+   **************************************************/
+
+  if (
+    !/^REG-[A-Z0-9]{8}$/
+      .test(
+        registrationId
+      )
+  ) {
+
+    showResult({
+
+      success: false,
+
+      type:
+        "INVALID",
+
+      message:
+        "This QR code is not a valid event registration QR."
+
+    });
+
+
     return;
+
   }
 
 
-  waitingForResponse =
+  processingScan =
     true;
 
 
-  stopScanner();
+  await stopScanner();
 
 
-  submitCheckIn(
+  showVerifying(
     registrationId
   );
 
-}
+
+  try {
+
+    const result =
+      await checkIn(
+        registrationId
+      );
 
 
-/************************************************
- * MANUAL ID
- ************************************************/
-
-function manualCheckIn() {
-
-  const id =
-    document
-      .getElementById(
-        "manualId"
-      )
-      .value
-      .trim();
-
-
-  if (!id) {
-
-    alert(
-      "Please enter a Registration ID."
+    showResult(
+      result
     );
 
-    return;
+
+  } catch (error) {
+
+    console.error(
+      error
+    );
+
+
+    showResult({
+
+      success: false,
+
+      type:
+        "ERROR",
+
+      message:
+        error.message ||
+        "Unable to contact check-in server."
+
+    });
 
   }
 
-
-  waitingForResponse =
-    true;
-
-
-  submitCheckIn(
-    id
-  );
-
 }
 
 
-/************************************************
- * SUBMIT TO APPS SCRIPT
- *
- * Uses a hidden iframe + POST.
- *
- * This avoids CORS problems and keeps the
- * camera page completely separate from Apps
- * Script's sandbox.
- ************************************************/
+/****************************************************
+ * SEND CHECK-IN REQUEST
+ ****************************************************/
 
-function submitCheckIn(
+async function checkIn(
   registrationId
 ) {
 
-
-  document
-    .getElementById(
-      "scannerCard"
-    )
-    .classList
-    .add("hidden");
+  const staffName =
+    staffNameInput.value.trim();
 
 
-  document
-    .getElementById(
-      "resultCard"
-    )
-    .classList
-    .remove("hidden");
+  const staffPin =
+    staffPinInput.value;
 
 
-  document
-    .getElementById(
-      "result"
-    )
-    .innerHTML = `
-
-      <div class="result warning">
-
-        <div class="status">
-          ⏳
-        </div>
-
-        <p style="text-align:center;">
-          Verifying registration...
-        </p>
-
-        <div class="registration-id">
-          ${escapeHtml(
-            registrationId
-          )}
-        </div>
-
-      </div>
-
-  `;
+  const controller =
+    new AbortController();
 
 
-  // Create POST form
+  const timeout =
+    setTimeout(
+      function() {
 
-  const form =
-    document.createElement(
-      "form"
+        controller.abort();
+
+      },
+      15000
     );
 
 
-  form.method =
-    "POST";
+  try {
 
+    const response =
+      await fetch(
 
-  form.action =
-    API_URL;
+        API_URL,
 
+        {
 
-  form.target =
-    "apiFrame";
+          method:
+            "POST",
 
+          headers: {
 
-  form.style.display =
-    "none";
+            "Content-Type":
+              "application/json"
 
+          },
 
-  addField(
-    form,
-    "action",
-    "checkin"
-  );
+          body:
+            JSON.stringify({
 
+              registrationId:
+                registrationId,
 
-  addField(
-    form,
-    "registrationId",
-    registrationId
-  );
+              staffName:
+                staffName,
 
+              pin:
+                staffPin
 
-  addField(
-    form,
-    "staffName",
-    staffName
-  );
+            }),
 
+          signal:
+            controller.signal
 
-  addField(
-    form,
-    "pin",
-    staffPin
-  );
+        }
 
-
-  document
-    .body
-    .appendChild(
-      form
-    );
-
-
-  form.submit();
-
-
-  // Clean up
-
-  setTimeout(
-    function() {
-
-      form.remove();
-
-    },
-    3000
-  );
-
-}
-
-
-/************************************************
- * ADD FORM FIELD
- ************************************************/
-
-function addField(
-  form,
-  name,
-  value
-) {
-
-  const input =
-    document.createElement(
-      "input"
-    );
-
-
-  input.type =
-    "hidden";
-
-
-  input.name =
-    name;
-
-
-  input.value =
-    value;
-
-
-  form.appendChild(
-    input
-  );
-
-}
-
-
-/************************************************
- * RECEIVE RESULT FROM APPS SCRIPT
- ************************************************/
-
-window.addEventListener(
-  "message",
-  function(event) {
+      );
 
 
     if (
-      !event.data ||
-      event.data.type !==
-      "EVENT_CHECKIN_RESULT"
+      !response.ok
     ) {
 
-      return;
+      throw new Error(
+        "Server returned HTTP " +
+        response.status
+      );
 
     }
 
 
-    displayResult(
-      event.data.data
+    const result =
+      await response.json();
+
+
+    return result;
+
+
+  } catch (error) {
+
+    if (
+      error.name ===
+      "AbortError"
+    ) {
+
+      throw new Error(
+        "The check-in server took too long to respond."
+      );
+
+    }
+
+
+    throw error;
+
+
+  } finally {
+
+    clearTimeout(
+      timeout
     );
+
+  }
+
+}
+
+
+/****************************************************
+ * VERIFYING DISPLAY
+ ****************************************************/
+
+function showVerifying(
+  registrationId
+) {
+
+  statusBox.className =
+    "status";
+
+
+  statusBox.classList.add(
+    "valid"
+  );
+
+
+  statusTitle.textContent =
+    "⏳ Verifying registration...";
+
+
+  statusMessage.textContent =
+    "";
+
+
+  registrationIdBox.textContent =
+    registrationId;
+
+
+  participantBox.classList.add(
+    "hidden"
+  );
+
+
+  nextButton.classList.add(
+    "hidden"
+  );
+
+
+  statusBox.style.display =
+    "block";
+
+}
+
+
+/****************************************************
+ * SHOW RESULT
+ ****************************************************/
+
+function showResult(
+  result
+) {
+
+  const type =
+    result.type ||
+    "ERROR";
+
+
+  statusBox.className =
+    "status";
+
+
+  participantBox.innerHTML =
+    "";
+
+
+  participantBox.classList.add(
+    "hidden"
+  );
+
+
+  registrationIdBox.textContent =
+    result.registrationId ||
+    "";
+
+
+  /**************************************************
+   * VALID
+   **************************************************/
+
+  if (
+    type ===
+    "VALID"
+  ) {
+
+    statusBox.classList.add(
+      "valid"
+    );
+
+
+    statusTitle.textContent =
+      "✅ CHECK-IN SUCCESSFUL";
+
+
+    statusMessage.textContent =
+      result.message ||
+      "Registration verified.";
+
+
+    showParticipant(
+      result.participant
+    );
+
+
+    vibrate();
+
+
+  }
+
+
+  /**************************************************
+   * ALREADY CHECKED IN
+   **************************************************/
+
+  else if (
+    type ===
+    "ALREADY_CHECKED_IN"
+  ) {
+
+    statusBox.classList.add(
+      "duplicate"
+    );
+
+
+    statusTitle.textContent =
+      "⚠️ ALREADY CHECKED IN";
+
+
+    statusMessage.textContent =
+      result.message ||
+      "This registration has already been checked in.";
+
+
+    showParticipant(
+      result.participant
+    );
+
+
+    if (
+      result.checkInTime
+    ) {
+
+      statusMessage.innerHTML +=
+        "<br><br><strong>Time:</strong> " +
+        escapeHtml(
+          result.checkInTime
+        );
+
+    }
+
+
+    if (
+      result.checkedInBy
+    ) {
+
+      statusMessage.innerHTML +=
+        "<br><strong>Staff:</strong> " +
+        escapeHtml(
+          result.checkedInBy
+        );
+
+    }
+
+
+    vibrate();
+
+  }
+
+
+  /**************************************************
+   * INVALID
+   **************************************************/
+
+  else if (
+    type ===
+    "INVALID"
+  ) {
+
+    statusBox.classList.add(
+      "invalid"
+    );
+
+
+    statusTitle.textContent =
+      "❌ INVALID REGISTRATION";
+
+
+    statusMessage.textContent =
+      result.message ||
+      "Registration not found.";
+
+
+    vibrate();
+
+  }
+
+
+  /**************************************************
+   * UNAUTHORIZED
+   **************************************************/
+
+  else if (
+    type ===
+    "UNAUTHORIZED"
+  ) {
+
+    statusBox.classList.add(
+      "invalid"
+    );
+
+
+    statusTitle.textContent =
+      "🔒 INVALID STAFF PIN";
+
+
+    statusMessage.textContent =
+      result.message ||
+      "Invalid staff PIN.";
+
+  }
+
+
+  /**************************************************
+   * BUSY
+   **************************************************/
+
+  else if (
+    type ===
+    "BUSY"
+  ) {
+
+    statusBox.classList.add(
+      "error"
+    );
+
+
+    statusTitle.textContent =
+      "⏳ SYSTEM BUSY";
+
+
+    statusMessage.textContent =
+      result.message ||
+      "Please scan again.";
+
+  }
+
+
+  /**************************************************
+   * OTHER ERROR
+   **************************************************/
+
+  else {
+
+    statusBox.classList.add(
+      "error"
+    );
+
+
+    statusTitle.textContent =
+      "⚠️ CHECK-IN ERROR";
+
+
+    statusMessage.textContent =
+      result.message ||
+      "Something went wrong.";
+
+  }
+
+
+  statusBox.style.display =
+    "block";
+
+
+  nextButton.classList.remove(
+    "hidden"
+  );
+
+
+  processingScan =
+    false;
+
+}
+
+
+/****************************************************
+ * PARTICIPANT DETAILS
+ ****************************************************/
+
+function showParticipant(
+  participant
+) {
+
+  if (
+    !participant ||
+    Object.keys(
+      participant
+    ).length === 0
+  ) {
+
+    return;
+
+  }
+
+
+  participantBox.innerHTML =
+    "";
+
+
+  for (
+    const key in participant
+  ) {
+
+    const row =
+      document.createElement(
+        "div"
+      );
+
+
+    row.className =
+      "participant-row";
+
+
+    row.innerHTML =
+
+      "<strong>" +
+
+      escapeHtml(
+        key
+      ) +
+
+      ":</strong> " +
+
+      escapeHtml(
+        participant[key]
+      );
+
+
+    participantBox.appendChild(
+      row
+    );
+
+  }
+
+
+  participantBox.classList.remove(
+    "hidden"
+  );
+
+}
+
+
+/****************************************************
+ * NEXT PARTICIPANT
+ ****************************************************/
+
+nextButton.addEventListener(
+  "click",
+  async function() {
+
+    statusBox.style.display =
+      "none";
+
+
+    participantBox.classList.add(
+      "hidden"
+    );
+
+
+    registrationIdBox.textContent =
+      "";
+
+
+    nextButton.classList.add(
+      "hidden"
+    );
+
+
+    processingScan =
+      false;
+
+
+    try {
+
+      await startScanner();
+
+
+    } catch (error) {
+
+      console.error(
+        error
+      );
+
+
+      alert(
+        "Could not restart camera.\n\n" +
+        error.message
+      );
+
+    }
 
   }
 );
 
 
-/************************************************
- * DISPLAY RESULT
- ************************************************/
-
-function displayResult(
-  data
-) {
-
-
-  const result =
-    document
-      .getElementById(
-        "result"
-      );
-
-
-  if (
-    data.type ===
-    "VALID"
-  ) {
-
-
-    result.innerHTML = `
-
-      <div class="result success">
-
-        <div class="status">
-          ✅ VALID
-        </div>
-
-        <div class="registration-id">
-          ${escapeHtml(
-            data.registrationId
-          )}
-        </div>
-
-        <p style="text-align:center;">
-          <strong>
-            Registration verified!
-          </strong>
-        </p>
-
-        ${formatParticipant(
-          data.participant
-        )}
-
-      </div>
-
-    `;
-
-
-    vibrate(
-      [100,50,100]
-    );
-
-
-  }
-
-
-  else if (
-    data.type ===
-    "ALREADY_CHECKED_IN"
-  ) {
-
-
-    result.innerHTML = `
-
-      <div class="result warning">
-
-        <div class="status">
-          ⚠️ ALREADY CHECKED IN
-        </div>
-
-        <div class="registration-id">
-          ${escapeHtml(
-            data.registrationId
-          )}
-        </div>
-
-        <p style="text-align:center;">
-          This participant has
-          already been checked in.
-        </p>
-
-        <p style="text-align:center;">
-
-          <strong>
-            Check-in Time:
-          </strong>
-
-          <br>
-
-          ${escapeHtml(
-            data.checkInTime ||
-            "-"
-          )}
-
-        </p>
-
-        <p style="text-align:center;">
-
-          <strong>
-            Checked-in By:
-          </strong>
-
-          <br>
-
-          ${escapeHtml(
-            data.checkedInBy ||
-            "-"
-          )}
-
-        </p>
-
-        ${formatParticipant(
-          data.participant
-        )}
-
-      </div>
-
-    `;
-
-
-    vibrate(
-      [300,100,300]
-    );
-
-
-  }
-
-
-  else if (
-    data.type ===
-    "INVALID"
-  ) {
-
-
-    result.innerHTML = `
-
-      <div class="result error">
-
-        <div class="status">
-          ❌ INVALID
-        </div>
-
-        <p style="text-align:center;">
-          ${escapeHtml(
-            data.message ||
-            "Registration not found."
-          )}
-        </p>
-
-        ${
-          data.registrationId
-          ?
-          `
-          <div class="registration-id">
-            ${escapeHtml(
-              data.registrationId
-            )}
-          </div>
-          `
-          :
-          ""
-        }
-
-      </div>
-
-    `;
-
-
-    vibrate(
-      [400,100,400]
-    );
-
-
-  }
-
-
-  else if (
-    data.type ===
-    "UNAUTHORIZED"
-  ) {
-
-
-    result.innerHTML = `
-
-      <div class="result error">
-
-        <div class="status">
-          🔒 UNAUTHORIZED
-        </div>
-
-        <p style="text-align:center;">
-          Invalid staff PIN.
-        </p>
-
-      </div>
-
-    `;
-
-
-  }
-
-
-  else {
-
-
-    result.innerHTML = `
-
-      <div class="result error">
-
-        <div class="status">
-          ❌ ERROR
-        </div>
-
-        <p style="text-align:center;">
-          ${escapeHtml(
-            data.message ||
-            "System error."
-          )}
-        </p>
-
-      </div>
-
-    `;
-
-  }
-
-
-  waitingForResponse =
-    false;
-
-}
-
-
-/************************************************
- * FORMAT PARTICIPANT
- ************************************************/
-
-function formatParticipant(
-  participant
-) {
-
-
-  if (!participant) {
-    return "";
-  }
-
-
-  let html =
-    '<div class="participant">';
-
-
-  Object
-    .keys(
-      participant
-    )
-    .forEach(
-      function(key) {
-
-
-        const value =
-          participant[key];
-
-
-        if (!value) {
-          return;
-        }
-
-
-        html += `
-
-          <div class="participant-row">
-
-            <div class="label">
-              ${escapeHtml(key)}
-            </div>
-
-            <div>
-              ${escapeHtml(value)}
-            </div>
-
-          </div>
-
-        `;
-
-      }
-    );
-
-
-  html +=
-    "</div>";
-
-
-  return html;
-
-}
-
-
-/************************************************
- * SCAN AGAIN
- ************************************************/
-
-function scanAgain() {
-
-
-  document
-    .getElementById(
-      "resultCard"
-    )
-    .classList
-    .add("hidden");
-
-
-  document
-    .getElementById(
-      "scannerCard"
-    )
-    .classList
-    .remove("hidden");
-
-
-  document
-    .getElementById(
-      "manualId"
-    )
-    .value =
-    "";
-
-
-  waitingForResponse =
-    false;
-
-
-  startScanner();
-
-}
-
-
-/************************************************
+/****************************************************
  * STOP SCANNER
- ************************************************/
+ ****************************************************/
 
-function stopScanner() {
-
+async function stopScanner() {
 
   if (
-    scanner &&
-    scannerRunning
+    !scanner ||
+    !scannerRunning
   ) {
 
-    scanner
-      .stop()
-
-      .then(
-        function() {
-
-          scannerRunning =
-            false;
-
-        }
-      )
-
-      .catch(
-        function() {
-
-          scannerRunning =
-            false;
-
-        }
-      );
+    return;
 
   }
 
+
+  try {
+
+    await scanner.stop();
+
+
+  } catch (error) {
+
+    console.warn(
+      "Scanner stop error:",
+      error
+    );
+
+  }
+
+
+  scannerRunning =
+    false;
+
+
+  scanner.clear();
+
 }
 
 
-/************************************************
- * MESSAGE
- ************************************************/
-
-function setMessage(
-  message
-) {
-
-  document
-    .getElementById(
-      "scannerMessage"
-    )
-    .textContent =
-    message;
-
-}
-
-
-/************************************************
+/****************************************************
  * VIBRATION
- ************************************************/
+ ****************************************************/
 
-function vibrate(
-  pattern
-) {
+function vibrate() {
 
   if (
     navigator.vibrate
   ) {
 
     navigator.vibrate(
-      pattern
+      200
     );
 
   }
@@ -1495,25 +1321,17 @@ function vibrate(
 }
 
 
-/************************************************
- * ESCAPE HTML
- ************************************************/
+/****************************************************
+ * HTML ESCAPE
+ ****************************************************/
 
 function escapeHtml(
   value
 ) {
 
-  if (
-    value === null ||
-    value === undefined
-  ) {
-
-    return "";
-
-  }
-
-
-  return String(value)
+  return String(
+    value ?? ""
+  )
 
     .replace(
       /&/g,
@@ -1543,6 +1361,7 @@ function escapeHtml(
 }
 
 </script>
+
 
 </body>
 
